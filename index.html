@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MediScript - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    if (!localStorage.getItem("loggedIn")) window.location.href = "login.html";
+  </script>
+
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="heartbeat.svg" alt="MediScript logo">
+        <h1>MediScript</h1>
+      </div>
+      <button onclick="localStorage.removeItem('loggedIn'); window.location.href='login.html'">Logout</button>
+    </header>
+
+    <section class="card">
+      <h2>Welcome to MediScript</h2>
+      <p>MediScript is a lightweight, secure way for doctors to create and manage prescriptions.</p>
+      <div class="actions">
+        <a href="prescription.html"><button>Go to Prescription Page</button></a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MediScript - Prescription</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    if (!localStorage.getItem("loggedIn")) window.location.href = "login.html";
+  </script>
+
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="heartbeat.svg" alt="MediScript logo">
+        <h1>MediScript</h1>
+      </div>
+      <button onclick="localStorage.removeItem('loggedIn'); window.location.href='login.html'">Logout</button>
+    </header>
+
+    <section class="card">
+      <h2>Create Prescription</h2>
+      <div class="field">
+        <label>Doctor Name</label>
+        <input id="doctor" type="text" placeholder="Dr. Jane Doe">
+      </div>
+      <div class="field">
+        <label>Patient Name</label>
+        <input id="patient" type="text" placeholder="John Smith">
+      </div>
+      <div class="field">
+        <label>Diagnosis / Notes</label>
+        <textarea id="notes" rows="3"></textarea>
+      </div>
+
+      <h3>Medications</h3>
+      <div id="medList"></div>
+      <button id="addMed" type="button" class="small">+ Add medication</button>
+
+      <div class="actions">
+        <button id="savePres">Save</button>
+        <button id="printPres" type="button" class="small">Print</button>
+        <button id="clearForm" type="button" class="small">Clear</button>
+      </div>
+      <p class="muted" id="message"></p>
+    </section>
+
+    <section class="card">
+      <h2>Saved Prescriptions</h2>
+      <input id="search" type="text" placeholder="Search by patient or doctor">
+      <div id="savedList"></div>
+      <div class="actions">
+        <button id="clearAll" class="small danger">Delete All</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
